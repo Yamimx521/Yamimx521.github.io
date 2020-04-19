@@ -144,6 +144,139 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/19/Spring/">Spring</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/19/Spring/" class="archive-article-date">
+  	<time datetime="2020-04-19T09:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="创建Bean的三种方式"><a href="#创建Bean的三种方式" class="headerlink" title="创建Bean的三种方式"></a>创建Bean的三种方式</h1><pre><code>Applicationcontext：单例对象适用
+    在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。
+BeanFactory：多例对象使用
+    在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。
+创建Bean的三种方式：
+    第一种方式：默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。
+    ![第一种方式](Spring\1.png)
+    第二种方式：使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）
+    ![第二种方式](Spring\2.png)</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/19/Spring/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/19/SpringMVC/">SpringMVC</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/19/SpringMVC/" class="archive-article-date">
+  	<time datetime="2020-04-19T08:24:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="三层架构和MVC"><a href="#三层架构和MVC" class="headerlink" title="三层架构和MVC"></a>三层架构和MVC</h1><p>   我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构也就是浏览器/服务器。在JavaEE开发中，几乎全是基于B/S架构的。在B/S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。<br>   表现层:<br>        也就是我们常说的web层。他负责接受客户请求，向客户端响应结果，通常客户端使用http协议请求web层，web层需要接受http请求，完成http响应。<br>            表现层包括展示层和控制层：控制层负责就收请求</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/19/SpringMVC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GC and Tuning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
