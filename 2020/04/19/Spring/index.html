@@ -102,7 +102,16 @@
       
 
       
-      <p><strong>创建bean的三种方式</strong><br>    Applicationcontext：单例对象适用<br>        在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。<br>    BeanFactory：多例对象使用<br>        在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。<br>    创建Bean的三种方式：<br>        第一种方式：默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。<br>        第二种方式：使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）<br>        第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入Spring容器）<br><strong>bean的作用范围</strong><br>    bean标签的scope属性用于指定bean的作用范围（取值：singleton：单例也是默认值 prototype：多例的 request：用于web应用的请求范围 session：用于web会话范围 global-session：作用于集群环境的会话范围全局会话范围不是集群环境也是session）<br>    <a id="more"></a><br><strong>bean的生命周期</strong><br>    单例对象：<br>        出生：当容器创建时对象出生<br>        死亡：只要容器还在对象就还在<br>        活着：容器消亡<br>    多例对象：<br>        出生：当使用对象时Spring为我们创建<br>        活着：对象使用过程中一直都在<br>        死亡：当对象长时间不用且没有别的对象引用时，有Java垃圾回收机制回收</p>
+      <p><strong>创建bean的三种方式</strong></p>
+<a id="more"></a>
+<pre><code>Applicationcontext：单例对象适用
+    在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。
+BeanFactory：多例对象使用
+    在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。
+创建Bean的三种方式：
+    第一种方式：默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。
+    第二种方式：使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）
+    第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入Spring容器）</code></pre><p><strong>bean的作用范围</strong><br>    bean标签的scope属性用于指定bean的作用范围（取值：singleton：单例也是默认值 prototype：多例的 request：用于web应用的请求范围 session：用于web会话范围 global-session：作用于集群环境的会话范围全局会话范围不是集群环境也是session）<br><strong>bean的生命周期</strong><br>    单例对象：<br>        出生：当容器创建时对象出生<br>        死亡：只要容器还在对象就还在<br>        活着：容器消亡<br>    多例对象：<br>        出生：当使用对象时Spring为我们创建<br>        活着：对象使用过程中一直都在<br>        死亡：当对象长时间不用且没有别的对象引用时，有Java垃圾回收机制回收</p>
 
       
       <!-- reward -->
@@ -343,11 +352,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">摄影</a>
+      <a class="nav-item-link" href="/photos">摄影</a>
     </li>
     
     <li class="nav-item">
