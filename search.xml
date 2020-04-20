@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Spring</title>
+    <url>/2020/04/19/Spring/</url>
+    <content><![CDATA[<p><strong>创建bean的三种方式</strong><br>    Applicationcontext：单例对象适用<br>        在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。<br>    BeanFactory：多例对象使用<br>        在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。<br>    创建Bean的三种方式：<br>        第一种方式：默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。<br>        第二种方式：使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）<br>        第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入Spring容器）<br><strong>bean的作用范围</strong><br>    bean标签的scope属性用于指定bean的作用范围（取值：singleton：单例也是默认值 prototype：多例的 request：用于web应用的请求范围 session：用于web会话范围 global-session：作用于集群环境的会话范围全局会话范围不是集群环境也是session）<br>    <a id="more"></a><br><strong>bean的生命周期</strong><br>    单例对象：<br>        出生：当容器创建时对象出生<br>        死亡：只要容器还在对象就还在<br>        活着：容器消亡<br>    多例对象：<br>        出生：当使用对象时Spring为我们创建<br>        活着：对象使用过程中一直都在<br>        死亡：当对象长时间不用且没有别的对象引用时，有Java垃圾回收机制回收</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC</title>
+    <url>/2020/04/19/SpringMVC/</url>
+    <content><![CDATA[<h1 id="三层架构和MVC"><a href="#三层架构和MVC" class="headerlink" title="三层架构和MVC"></a>三层架构和MVC</h1><p>   我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构也就是浏览器/服务器。在JavaEE开发中，几乎全是基于B/S架构的。在B/S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。<a id="more"></a><br>    <strong>表现层：</strong><br>        也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求<br>        web 层，web 需要接收 http 请求，完成 http 响应。<br>        表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。<br>        表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。<br>        表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）<br>    <strong>业务层：</strong><br>        也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。web 层依赖业<br>        务层，但是业务层不依赖 web 层。<br>        业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，<br>        事务应该放到业务层来控制）<br>    <strong>持久层：</strong><br>        也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进<br>        行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库<br>        中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。<br>    <strong>MVC</strong><br>            MVC 全名是 Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，<br>            是一种用于设计创建 Web 应用程序表现层的模式。MVC 中每个部分各司其职：<br>        Model（模型）：<br>            通常指的就是我们的数据模型。作用一般情况下用于封装数据。<br>        View（视图）：<br>            通常指的就是我们的 jsp 或者 html。作用一般就是展示数据的。<br>            通常视图是依据模型数据创建的。<br>        Controller（控制器）：<br>            是应用程序中处理用户交互的部分。作用一般就是处理程序逻辑的。<br>            它相对于前两个不是很好理解，这里举个例子：<br>            例如：<br>            我们要保存一个用户的信息，该用户信息中包含了姓名，性别，年龄等等。<br>            这时候表单输入要求年龄必须是 1~100 之间的整数。姓名和性别不能为空。并且把数据填充<br>            到模型之中。<br>            此时除了 js 的校验之外，服务器端也应该有数据准确性的校验，那么校验就是控制器的该做<br>            的。<br>            当校验失败后，由控制器负责把错误页面展示给使用者。<br>            如果校验成功，也是控制器负责把数据填充到模型，并且调用业务层实现完整的业务需求。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>GC and Tuning</title>
+    <url>/2020/04/16/GC%20and%20Tuning/</url>
+    <content><![CDATA[<h1 id="GC和GC-Tuning"><a href="#GC和GC-Tuning" class="headerlink" title="GC和GC Tuning"></a>GC和GC Tuning</h1><h3 id="GC的基础知识"><a href="#GC的基础知识" class="headerlink" title="GC的基础知识"></a>GC的基础知识</h3><h4 id="1-什么是垃圾"><a href="#1-什么是垃圾" class="headerlink" title="1.什么是垃圾"></a>1.什么是垃圾</h4><a id="more"></a>
+
+<blockquote>
+<p>C语言申请内存：malloc free</p>
+<p>C++： new delete</p>
+<p>Java: new ？</p>
+<p>自动内存回收，编程上简单，系统不容易出错，手动释放内存，容易出两种类型的问题：</p>
+<ol>
+<li>忘记回收</li>
+<li>多次回收</li>
+</ol>
+</blockquote>
+<p>没有任何引用指向的一个对象或者多个对象（循环引用）</p>
+<h4 id="2-如何定位垃圾"><a href="#2-如何定位垃圾" class="headerlink" title="2.如何定位垃圾"></a>2.如何定位垃圾</h4><ol>
+<li>引用计数</li>
+<li>根可达算法</li>
+</ol>
+<h4 id="3-常见的垃圾回收算法"><a href="#3-常见的垃圾回收算法" class="headerlink" title="3.常见的垃圾回收算法"></a>3.常见的垃圾回收算法</h4><ol>
+<li>标记清除 - 位置不连续 产生碎片</li>
+<li>拷贝算法 - 没有碎片，浪费空间</li>
+<li>标记压缩 - 没有碎片，效率偏低</li>
+</ol>
+<h4 id="4-JVM内存分代模型（用于分代垃圾回收算法）"><a href="#4-JVM内存分代模型（用于分代垃圾回收算法）" class="headerlink" title="4.JVM内存分代模型（用于分代垃圾回收算法）"></a>4.JVM内存分代模型（用于分代垃圾回收算法）</h4><ol>
+<li>部分垃圾回收器使用的模型</li>
+<li>新生代 + 老年代 + 永久代（1.7）/ 元数据区(1.8) Metaspace<ol>
+<li>永久代 元数据 - Class</li>
+<li>永久代必须指定大小限制 ，元数据可以设置，也可以不设置，无上限（受限于物理内存）</li>
+<li>字符串常量 1.7 - 永久代，1.8 - 堆</li>
+<li>MethodArea逻辑概念 - 永久代、元数据</li>
+</ol>
+</li>
+<li>新生代 = Eden + 2个suvivor区 <ol>
+<li>YGC回收之后，大多数的对象会被回收，活着的进入s0</li>
+<li>再次YGC，活着的对象eden + s0 -&gt; s1</li>
+<li>再次YGC，eden + s1 -&gt; s0</li>
+<li>年龄足够 -&gt; 老年代 （15 CMS 6）</li>
+<li>s区装不下 -&gt; 老年代</li>
+</ol>
+</li>
+<li>老年代<ol>
+<li>顽固分子</li>
+<li>老年代满了FGC Full GC</li>
+</ol>
+</li>
+<li>GC Tuning (Generation)<ol>
+<li>尽量减少FGC</li>
+<li>MinorGC = YGC</li>
+<li>MajorGC = FGC</li>
+</ol>
+</li>
+</ol>
+<h4 id="5-常见的垃圾回收器"><a href="#5-常见的垃圾回收器" class="headerlink" title="5.常见的垃圾回收器"></a>5.常见的垃圾回收器</h4><ol>
+<li>Serial 年轻代 串行回收</li>
+<li>PS 年轻代 并行回收</li>
+<li>ParNew 年轻代 配合CMS的并行回收</li>
+<li>SerialOld </li>
+<li>ParallelOld</li>
+<li>ConcurrentMarkSweep 老年代 并发的， 垃圾回收和应用程序同时运行，降低STW的时间(200ms)</li>
+<li>G1(10ms)</li>
+<li>ZGC (1ms) PK C++</li>
+<li>Shenandoah</li>
+<li>Eplison</li>
+</ol>
+<p>1.8默认的垃圾回收：PS + ParallelOld</p>
+<h4 id="6-JVM调优第一步，了解生产环境下的垃圾回收器组合"><a href="#6-JVM调优第一步，了解生产环境下的垃圾回收器组合" class="headerlink" title="6.JVM调优第一步，了解生产环境下的垃圾回收器组合"></a>6.JVM调优第一步，了解生产环境下的垃圾回收器组合</h4><ul>
+<li><p>JVM的命令行参数参考：<a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</a></p>
+</li>
+<li><p>JVM参数分类</p>
+<blockquote>
+<p>标准： - 开头，所有的HotSpot都支持</p>
+<p>非标准：-X 开头，特定版本HotSpot支持特定命令</p>
+<p>不稳定：-XX 开头，下个版本可能取消</p>
+</blockquote>
+<p>-XX:+PrintCommandLineFlags </p>
+<p>-XX:+PrintFlagsFinal 最终参数值</p>
+<p>-XX:+PrintFlagsInitial 默认参数值</p>
+</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><a href="https://blogs.oracle.com/jonthecollector/our-collectors" target="_blank" rel="noopener">https://blogs.oracle.com/
+ </a><a href="https://blogs.oracle.com/jonthecollector/our-collectors" target="_blank" rel="noopener">jonthecollector</a><a href="https://blogs.oracle.com/jonthecollector/our-collectors" target="_blank" rel="noopener">/our-collectors</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</a></li>
+<li><a href="http://java.sun.com/javase/technologies/hotspot/vmoptions.jsp" target="_blank" rel="noopener">http://java.sun.com/javase/technologies/hotspot/vmoptions.jsp</a></li>
+</ol>
+]]></content>
+  </entry>
+</search>
