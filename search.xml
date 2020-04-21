@@ -89,6 +89,33 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Spring</title>
+    <url>/2020/04/19/Spring/</url>
+    <content><![CDATA[<p><strong>创建bean的三种方式</strong></p>
+<a id="more"></a>
+<pre><code>Applicationcontext：单例对象适用
+    在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。
+BeanFactory：多例对象使用
+    在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。
+创建Bean的三种方式：
+    第一种方式：
+        默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。
+
+    第二种方式：
+        使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）
+
+    第三种方式：
+        使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入Spring容器）</code></pre><p><strong>bean的作用范围</strong><br>    bean标签的scope属性用于指定bean的作用范围（取值：singleton：单例也是默认值 prototype：多例的 request：用于web应用的请求范围 session：用于web会话范围 global-session：作用于集群环境的会话范围全局会话范围不是集群环境也是session）<br><strong>bean的生命周期</strong><br>    单例对象：<br>        出生：当容器创建时对象出生<br>        死亡：只要容器还在对象就还在<br>        活着：容器消亡<br>    多例对象：<br>        出生：当使用对象时Spring为我们创建<br>        活着：对象使用过程中一直都在<br>        死亡：当对象长时间不用且没有别的对象引用时，有Java垃圾回收机制回收</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC</title>
+    <url>/2020/04/19/SpringMVC/</url>
+    <content><![CDATA[<h1 id="三层架构和MVC"><a href="#三层架构和MVC" class="headerlink" title="三层架构和MVC"></a>三层架构和MVC</h1><a id="more"></a>
+<p>   我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构也就是浏览器/服务器。在JavaEE开发中，几乎全是基于B/S架构的。在B/S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。<br>    <strong>表现层：</strong><br>        也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求<br>        web 层，web 需要接收 http 请求，完成 http 响应。<br>        表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。<br>        表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。<br>        表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）<br>    <strong>业务层：</strong><br>        也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。web 层依赖业<br>        务层，但是业务层不依赖 web 层。<br>        业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，<br>        事务应该放到业务层来控制）<br>    <strong>持久层：</strong><br>        也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进<br>        行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库<br>        中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。<br>    <strong>MVC</strong><br>            MVC 全名是 Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，<br>            是一种用于设计创建 Web 应用程序表现层的模式。MVC 中每个部分各司其职：<br>        Model（模型）：<br>            通常指的就是我们的数据模型。作用一般情况下用于封装数据。<br>        View（视图）：<br>            通常指的就是我们的 jsp 或者 html。作用一般就是展示数据的。<br>            通常视图是依据模型数据创建的。<br>        Controller（控制器）：<br>            是应用程序中处理用户交互的部分。作用一般就是处理程序逻辑的。<br>            它相对于前两个不是很好理解，这里举个例子：<br>            例如：<br>            我们要保存一个用户的信息，该用户信息中包含了姓名，性别，年龄等等。<br>            这时候表单输入要求年龄必须是 1~100 之间的整数。姓名和性别不能为空。并且把数据填充<br>            到模型之中。<br>            此时除了 js 的校验之外，服务器端也应该有数据准确性的校验，那么校验就是控制器的该做<br>            的。<br>            当校验失败后，由控制器负责把错误页面展示给使用者。<br>            如果校验成功，也是控制器负责把数据填充到模型，并且调用业务层实现完整的业务需求。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>SpringBoot</title>
     <url>/2020/04/20/SpringBoot/</url>
     <content><![CDATA[<h1 id="SpringBoot基础"><a href="#SpringBoot基础" class="headerlink" title="SpringBoot基础"></a>SpringBoot基础</h1><a id="more"></a>
@@ -126,10 +153,10 @@
 </ul>
 <p>​    注意：起步依赖和自动配置的原理剖析会在第三章《SpringBoot原理分析》进行详细讲解</p>
 <h1 id="二、SpringBoot快速入门"><a href="#二、SpringBoot快速入门" class="headerlink" title="二、SpringBoot快速入门"></a>二、SpringBoot快速入门</h1><h2 id="2-1-代码实现"><a href="#2-1-代码实现" class="headerlink" title="2.1 代码实现"></a>2.1 代码实现</h2><h3 id="2-1-1-创建Maven工程"><a href="#2-1-1-创建Maven工程" class="headerlink" title="2.1.1 创建Maven工程"></a>2.1.1 创建Maven工程</h3><p>使用idea工具创建一个maven工程，该工程为普通的java工程即可</p>
-<p><img src="/.com//img%5C1.png" alt></p>
-<p><img src="/.com//img%5C2.png" alt></p>
-<p><img src="/.com//img%5C3.png" alt></p>
-<p><img src="/.com//img%5C4.png" alt></p>
+<p><img src="/.com//1.png" alt></p>
+<p><img src="/.com//2.png" alt></p>
+<p><img src="/.com//3.png" alt></p>
+<p><img src="/.com//4.png" alt></p>
 <h3 id="2-1-2-添加SpringBoot的起步依赖"><a href="#2-1-2-添加SpringBoot的起步依赖" class="headerlink" title="2.1.2 添加SpringBoot的起步依赖"></a>2.1.2 添加SpringBoot的起步依赖</h3><p>SpringBoot要求，项目要继承SpringBoot的起步依赖spring-boot-starter-parent</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -150,7 +177,7 @@
 <p>通过日志发现，Tomcat started on port(s): 8080 (http) with context path ‘’</p>
 <p>tomcat已经起步，端口监听8080，web应用的虚拟工程名称为空</p>
 <p>打开浏览器访问url地址为：<a href="http://localhost:8080/quick" target="_blank" rel="noopener">http://localhost:8080/quick</a></p>
-<p><img src="/.com//img%5C5.png" alt></p>
+<p><img src="/.com//5.png" alt></p>
 <h2 id="2-2-快速入门解析"><a href="#2-2-快速入门解析" class="headerlink" title="2.2 快速入门解析"></a>2.2 快速入门解析</h2><h3 id="2-2-2-SpringBoot代码解析"><a href="#2-2-2-SpringBoot代码解析" class="headerlink" title="2.2.2 SpringBoot代码解析"></a>2.2.2 SpringBoot代码解析</h3><ul>
 <li>@SpringBootApplication：标注SpringBoot的启动类，该注解具备多种功能（后面详细剖析）</li>
 <li>SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的启动类，参数为SpringBoot启动类的字节码对象</li>
@@ -160,14 +187,14 @@
 
 <p>注意：IDEA进行SpringBoot热部署失败原因</p>
 <p>出现这种情况，并不是热部署配置问题，其根本原因是因为Intellij IEDA默认情况下不会自动编译，需要对IDEA进行自动编译的设置，如下：</p>
-<p><img src="/.com//img%5C19.png" alt></p>
+<p><img src="/.com//19.png" alt></p>
 <p>然后 Shift+Ctrl+Alt+/，选择Registry</p>
-<p><img src="/.com//img%5C20.png" alt></p>
-<h3 id="2-2-4-使用idea快速创建SpringBoot项目"><a href="#2-2-4-使用idea快速创建SpringBoot项目" class="headerlink" title="2.2.4 使用idea快速创建SpringBoot项目"></a>2.2.4 使用idea快速创建SpringBoot项目</h3><p><img src="/.com//img%5C6.png" alt></p>
-<p><img src="/.com//img%5C7.png" alt></p>
-<p><img src="/.com//img%5C8.png" alt></p>
-<p><img src="/.com//img%5C9.png" alt></p>
-<p><img src="/.com//img%5C10.png" alt></p>
+<p><img src="/.com//20.png" alt></p>
+<h3 id="2-2-4-使用idea快速创建SpringBoot项目"><a href="#2-2-4-使用idea快速创建SpringBoot项目" class="headerlink" title="2.2.4 使用idea快速创建SpringBoot项目"></a>2.2.4 使用idea快速创建SpringBoot项目</h3><p><img src="/.com//6.png" alt></p>
+<p><img src="/.com//7.png" alt></p>
+<p><img src="/.com//8.png" alt></p>
+<p><img src="/.com//9.png" alt></p>
+<p><img src="/.com//10.png" alt></p>
 <p>通过idea快速创建的SpringBoot项目的pom.xml中已经导入了我们选择的web的起步依赖的坐标</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot_quick2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>springboot_quick2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>9<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -365,33 +392,6 @@
 <h3 id="5-4-3-注入RedisTemplate测试redis操作"><a href="#5-4-3-注入RedisTemplate测试redis操作" class="headerlink" title="5.4.3 注入RedisTemplate测试redis操作"></a>5.4.3 注入RedisTemplate测试redis操作</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">SpringBootTest</span>(<span class="title">classes</span> </span>= SpringbootJpaApplication<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">RedisTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate&lt;String, String&gt; redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> JsonProcessingException </span>&#123;</span><br><span class="line">        <span class="comment">//从redis缓存中获得指定的数据</span></span><br><span class="line">        String userListData = redisTemplate.boundValueOps(<span class="string">"user.findAll"</span>).get();</span><br><span class="line">        <span class="comment">//如果redis中没有数据的话</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">null</span>==userListData)&#123;</span><br><span class="line">            <span class="comment">//查询数据库获得数据</span></span><br><span class="line">            List&lt;User&gt; all = userRepository.findAll();</span><br><span class="line">            <span class="comment">//转换成json格式字符串</span></span><br><span class="line">            ObjectMapper om = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">            userListData = om.writeValueAsString(all);</span><br><span class="line">            <span class="comment">//将数据存储到redis中，下次在查询直接从redis中获得数据，不用在查询数据库</span></span><br><span class="line">            redisTemplate.boundValueOps(<span class="string">"user.findAll"</span>).set(userListData);</span><br><span class="line">            System.out.println(<span class="string">"===============从数据库获得数据==============="</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"===============从redis缓存中获得数据==============="</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(userListData);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-]]></content>
-  </entry>
-  <entry>
-    <title>Spring</title>
-    <url>/2020/04/19/Spring/</url>
-    <content><![CDATA[<p><strong>创建bean的三种方式</strong></p>
-<a id="more"></a>
-<pre><code>Applicationcontext：单例对象适用
-    在创建核心容器时，采取的对象创建策略是立即加载的方式。也就是说一读取完配置文件就创建好了对象。
-BeanFactory：多例对象使用
-    在创建核心容器时，采取的对象创建策略是延迟加载的方式，也就是说什么时候根据ID获取对象，什么时候创建对象。
-创建Bean的三种方式：
-    第一种方式：
-        默认构造函数创建。在Spring的配置文件中使用bean标签，配以id和class属性后且没有其他标签是。采用的是默认构造函数创建bean对象，如果没有默认构造函数则创建失败。
-
-    第二种方式：
-        使用普通工厂中的方法创建对象（使用某个类中的方法创建，并存入Spring容器）
-
-    第三种方式：
-        使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入Spring容器）</code></pre><p><strong>bean的作用范围</strong><br>    bean标签的scope属性用于指定bean的作用范围（取值：singleton：单例也是默认值 prototype：多例的 request：用于web应用的请求范围 session：用于web会话范围 global-session：作用于集群环境的会话范围全局会话范围不是集群环境也是session）<br><strong>bean的生命周期</strong><br>    单例对象：<br>        出生：当容器创建时对象出生<br>        死亡：只要容器还在对象就还在<br>        活着：容器消亡<br>    多例对象：<br>        出生：当使用对象时Spring为我们创建<br>        活着：对象使用过程中一直都在<br>        死亡：当对象长时间不用且没有别的对象引用时，有Java垃圾回收机制回收</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>SpringMVC</title>
-    <url>/2020/04/19/SpringMVC/</url>
-    <content><![CDATA[<h1 id="三层架构和MVC"><a href="#三层架构和MVC" class="headerlink" title="三层架构和MVC"></a>三层架构和MVC</h1><a id="more"></a>
-<p>   我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构也就是浏览器/服务器。在JavaEE开发中，几乎全是基于B/S架构的。在B/S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。<br>    <strong>表现层：</strong><br>        也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求<br>        web 层，web 需要接收 http 请求，完成 http 响应。<br>        表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。<br>        表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。<br>        表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）<br>    <strong>业务层：</strong><br>        也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。web 层依赖业<br>        务层，但是业务层不依赖 web 层。<br>        业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，<br>        事务应该放到业务层来控制）<br>    <strong>持久层：</strong><br>        也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进<br>        行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库<br>        中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。<br>    <strong>MVC</strong><br>            MVC 全名是 Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，<br>            是一种用于设计创建 Web 应用程序表现层的模式。MVC 中每个部分各司其职：<br>        Model（模型）：<br>            通常指的就是我们的数据模型。作用一般情况下用于封装数据。<br>        View（视图）：<br>            通常指的就是我们的 jsp 或者 html。作用一般就是展示数据的。<br>            通常视图是依据模型数据创建的。<br>        Controller（控制器）：<br>            是应用程序中处理用户交互的部分。作用一般就是处理程序逻辑的。<br>            它相对于前两个不是很好理解，这里举个例子：<br>            例如：<br>            我们要保存一个用户的信息，该用户信息中包含了姓名，性别，年龄等等。<br>            这时候表单输入要求年龄必须是 1~100 之间的整数。姓名和性别不能为空。并且把数据填充<br>            到模型之中。<br>            此时除了 js 的校验之外，服务器端也应该有数据准确性的校验，那么校验就是控制器的该做<br>            的。<br>            当校验失败后，由控制器负责把错误页面展示给使用者。<br>            如果校验成功，也是控制器负责把数据填充到模型，并且调用业务层实现完整的业务需求。</p>
 ]]></content>
   </entry>
 </search>
