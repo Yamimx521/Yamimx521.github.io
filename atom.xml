@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-21T08:27:17.980Z</updated>
+  <updated>2020-04-22T11:52:02.918Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM</title>
+    <link href="http://yoursite.com/2020/04/22/JVM/"/>
+    <id>http://yoursite.com/2020/04/22/JVM/</id>
+    <published>2020-04-22T08:59:06.000Z</published>
+    <updated>2020-04-22T11:52:02.918Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JVM内存区域"><a href="#JVM内存区域" class="headerlink" title="JVM内存区域"></a>JVM内存区域</h1><pre><code>1、方法区/永久代（所有线程共享）    即我们常说的永久代（Permanent Generation），用于储存被JVM加载的类信息、常量、静态变量、即时编译器编译的代码等数据。HotSpot VM把GC分代收集拓展至方法区，即使用Java堆得永久代来实现方法区，这样HotSpot的垃圾回收器就可以像管理Java堆一样来管理这部分内存，而不用专门为方法区开发专门的内存管理器（永久代的内存回收一般针对常量池的回收和类型的卸载，因此受益一般很小）    运行时常量池是方法区的一部分，Class文件中除了有类的版本、字段、方法、接口等描述信息外还有一项就是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容在类加载后存放到方法区的运行时常量池中。Java 虚拟机对 Class 文件的每一部分（自然也包括常池）的格式都有严格的规定，每一个字节用于存储哪种数据都必须符合规范上的要求，这样才会被虚拟机认可、装载和执行。2、堆（所有线程共享）-运行时数据区    是被线程共享的一块内存区域，创建的对象和数组都保存在堆中，也是垃圾收集器进行垃圾回收的重要区域。由于现代VM采用分代回收算法，因此java堆聪GC角度还可以细分为新生代（Eden、From Survivor、To Survivor）和老年代。3、虚拟机栈(线程私有)    是用来描述Java方法执行的内存模型，每个方法在执行时都会创建一个栈帧用来存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法从调用执行到执行结束都对应着一个栈帧在虚拟机栈中入栈到出栈的过程。栈帧是用来存储数据和部分过程结果的数据结构，同时也用来处理动态链接、方法返回值和异常分派。栈帧随着方法的调用而创建随着方法的结束而销毁---无论方法是正常结束还是异常完成，都算方法结束。4、本地方法栈（线程私有）    本地方法区和 Java Stack 作用类似, 区别是虚拟机栈为执行 Java 方法服务, 而本地方法栈则为Native 方法服务, 如果一个 VM 实现使用 C-linkage 模型来支持 Native 调用, 那么该栈将会是一个C 栈，但 HotSpot VM 直接就把本地方法栈和虚拟机栈合二为一。5、程序计数器（线程私有）    一块较小的内存空间，使当前线程所执行的字节码的行号指示器，通俗点讲就是记录该线程执行到哪一步了。</code></pre><h1 id="JVM运行时内存"><a href="#JVM运行时内存" class="headerlink" title="JVM运行时内存"></a>JVM运行时内存</h1><pre><code>Java堆从GC角度还可以分为新生代和老年代年轻代又分为一个Eden和两个Survivor，老年代占堆内存的2/3新生代占1/3,新生代中Eden和两个Survivor的内存分配为8:1:1    Eden区：        Java 新对象的出生地（如果新创建的对象占用内存很大，则直接分配到老年代）。当 Eden 区内存不够的时候就会触发 MinorGC，对新生代区进行一次垃圾回收。    S0区：        上一次 GC 的幸存者，作为这一次 GC 的被扫描者。    S1区：        保留了一次 MinorGC 过程中的幸存者。    MinorGC的过程（采用copy的垃圾回收算法  复制--&gt;清空--&gt;互换）        1：eden、servicorFrom 复制到 ServicorTo，年龄+1            首先，把 Eden 和 ServivorFrom 区域中存活的对象复制到 ServicorTo 区域（如果有对象的年龄以及达到了老年的标准，则赋值到老年代区），同时把这些对象的年龄+1（如果 ServicorTo 不够位置了就放到老年区）；        2：清空 eden、servicorFrom然后，清空 Eden 和 ServicorFrom 中的对象        3：ServicorTo 和 ServicorFrom 互换最后，ServicorTo 和 ServicorFrom 互换，原 ServicorTo 成为下一次 GC 时的 ServicorFrom区。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JVM内存区域&quot;&gt;&lt;a href=&quot;#JVM内存区域&quot; class=&quot;headerlink&quot; title=&quot;JVM内存区域&quot;&gt;&lt;/a&gt;JVM内存区域&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;1、方法区/永久代（所有线程共享）
+    即我们常说的永久代（Permanent 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot</title>
